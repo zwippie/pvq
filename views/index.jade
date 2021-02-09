@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(action="/outcome", method="post")
+    - each question in questions
+      div.question
+        p How important is #{question} to you?
+        table
+          tbody
+            tr
+              - each option, index in {0: "Opposed", 1: "Not important", 2: "", 3: "", 4: "Important", 5: "", 6: "", 7: "Very important", 8: "Of supreme importance"}
+                td
+                  input(type="radio", name="answer[#{question}]", value=index)
+                  br
+                  span= index
+
+    input(type="submit")

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 #{title} Results
+
+  ul
+    - each score, value in outcome
+      li #{value}: #{score}
